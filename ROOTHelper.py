@@ -1,12 +1,15 @@
 from ROOT import TFile, TTree, TH1F, TH1D, TCanvas
 
 class ROOTHelper():
-    def __init__(self, file_name):
+    def __init__(self, file_name, tree_name="" opt="READ"):
         self.file_name = file_name
-        self.file = TFile(file_name, "READ")
+        self.file = TFile(file_name, opt)
+        if len(tree_name) > 0:
+            self.tree = load_tree(tree_name)
+
+        
     
-    
-    def file_to_tree(self, tree_name, opt="READ"):
+    def load_tree(self, tree_name):
         self.tree = self.file.Get(tree_name)
 
 
