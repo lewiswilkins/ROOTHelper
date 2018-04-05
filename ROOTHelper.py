@@ -1,7 +1,7 @@
 from ROOT import TFile, TTree, TH1F, TH1D, TCanvas
 
 class ROOTHelper():
-    def __init__(self, file_name, tree_name="" opt="READ"):
+    def __init__(self, file_name, tree_name="", opt="READ"):
         self.file_name = file_name
         self.file = TFile(file_name, opt)
         if len(tree_name) > 0:
