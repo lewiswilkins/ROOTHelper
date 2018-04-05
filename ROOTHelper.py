@@ -58,6 +58,18 @@ def print_hist(hist, name, xsize=600, ysize=400,
     hist.Draw(opt)
     canvas.Print(name+extension)
 
+def print_hist_list(hists, names=[]):
+    if len(names) == 0:
+        for hist in hists:
+            print_hist(hist, hist.GetName())
+    else:
+        if len(hists) == len(names):
+            for hist,name in zip(hists, names):
+                print_hist(hist, name)
+        else:
+            raise IndexError
+        
+
     
 def get_xaxis_max(hist):
     xmax = hist.GetBinLowEdge(hist.GetNbinsX()) + hist.GetBinWidth(hist.GetNbinsX())
