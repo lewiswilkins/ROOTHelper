@@ -5,7 +5,7 @@ class ROOTHelper():
         self.file_name = file_name
         self.file = TFile(file_name, opt)
         if len(tree_name) > 0:
-            self.tree = load_tree(tree_name)
+            self.tree = self.load_tree(tree_name)
 
         
     
