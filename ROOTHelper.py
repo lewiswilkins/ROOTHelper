@@ -1,6 +1,12 @@
 from ROOT import TFile, TTree, TH1F, TH1D, TCanvas
 
 
+def file_to_tree(file_name, tree_name, opt="READ"):
+    tree_file = TFile(file_name, opt)
+    tree = tree_file.Get(tree_name)
+    return tree
+
+
 def tree_to_TH1F(var, tree, binning, cut="1", bins=0, xmin=0, xmax=0, opt=""):
     if bins == 0:
         bins = len(binning)-1
