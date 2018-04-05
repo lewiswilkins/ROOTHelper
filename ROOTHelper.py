@@ -52,10 +52,9 @@ def print_hist(hist, name, xsize=600, ysize=400,
     hist.Draw(opt)
     canvas.Print(name+extension)
 
-
+    
 def get_xaxis_max(hist):
-    xmax = hist.GetBinLowEdge(hist.GetNbinsX()) +
-    hist.GetBinWidth(hist.GetNbinsX())
+    xmax = hist.GetBinLowEdge(hist.GetNbinsX()) + hist.GetBinWidth(hist.GetNbinsX())
     return xmax
 
 
