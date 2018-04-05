@@ -1,9 +1,12 @@
 from ROOT import TFile, TTree, TH1F, TH1D, TCanvas
 
 
-def file_to_tree(file_name, tree_name, opt="READ"):
+def file_to_tree(file_name, tree_name, opt="READ", verbose=False):
     tree_file = TFile(file_name, opt)
     tree = tree_file.Get(tree_name)
+    if verbose:
+        print file_name + " " + tree_name
+        print type(tree)
     return tree
 
 
